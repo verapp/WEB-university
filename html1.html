@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна №1</title>
+    <style>
+    /* Основний стиль меню */
+nav {
+    background: #111; 
+    padding: 0;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    position: relative;
+}
+
+/* Стиль кнопок меню */
+nav ul li a {
+    display: block;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.3s;
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+
+/* Градієнтна підсвітка зверху */
+nav ul li a::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 1px; 
+    width: 80%;
+    height: 6px;
+    background: radial-gradient(circle, rgba(162, 0, 255, 0.9) 0%, rgba(162, 0, 255, 0) 90%);
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    filter: blur(1px);
+}
+
+/* Підсвічування при наведенні */
+nav ul li a:hover::before {
+    opacity: 1;
+}
+
+/* Жовте підсвічування для "ГОЛОВНА" (завжди видно) */
+nav ul li:first-child a::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 1px;
+    width: 80%;
+    height: 6px;
+    background: radial-gradient(circle, rgba(255, 204, 0, 0.9) 0%, rgba(255, 204, 0, 0) 90%);
+    transform: translateX(-50%);
+    opacity: 1;
+    filter: blur(1px);
+}
+
+
+/* Стилізація текстових блоків */
+.box {
+    border: 1px solid blue;
+    padding: 15px;
+    margin: 20px;
+}
+.box h2 {
+    color: blue;
+    font-size: 20px;
+}
+.read-more {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 90%;
+}
+.read-more:hover {
+    text-decoration: underline;
+}
+        
+    </style>
+</head>
+<body>
+
+    <!-- Меню з ефектом підсвітки -->
+    <nav>
+        <ul>
+            <li><a href="#">ГОЛОВНА</a></li>
+            <li><a href="#">ФОРУМ</a></li>
+            <li><a href="#">БЛОГИ</a></li>
+            <li><a href="#">ФАЙЛИ</a></li>
+            <li><a href="#">ДОВІДКА</a></li>
+        </ul>
+    </nav>
+
+    <!-- Блок "Новини" -->
+    <div class="box">
+        <h2>Новини</h2>
+        <p>Lorem ipsum dolor sit amet, sed eius soluta no, qui at convenire qualisque. Et enim graece sensibus mei. Ut nihil graeco referrentur sea, ad sea ludus possit intellegat, qui nonumy animal regione eu. Mel oblique minimum omnesque cu, et eam decore intellegam, no dolorum utroque has. Eos at esse tation numquam.</p>
+        <p>Blandit senserit suavitate te sea, alterum epicurei an quo. Mollis ceteros an duo, eripuit singulis constituam cu nec. Dictas insolens te mel, nibh tantas homero ei vis, ut probatus inciderint duo. Eos intellegat cotidieque no.</p>
+        <a href="#" class="read-more">детальніше...</a>
+    </div>
+
+    <!-- Блок "Про компанію" -->
+    <div class="box">
+        <h2>Про компанію</h2>
+        <p>Salutandi gubergren eum ei, apeirian mnesarchum mea ei, eam dictas viderer erroribus an. Diceret feugiat est te, ius te falli aeque officiis. Nec idque mentitum instructior eu, no qui scripta feugait, eam ut sale efficiendi. Sed officiis referrentur conclusionemque ne, nobis detracto rationibus cu sea. Copiosae ocurreret theophrastus ex his, mei vide nemore abhorreant ut, ut atomorum mediocrem vix.</p>
+        <p>Assum erant ea vel. Ut malorum definitiones his, eam ipsum facilisis ne. Ea dolorum vocibus definitionem mel, an eam zril probatus intellegam, qui ex eros ubique copiosae. Mutat copiosae sensibus ut sit. Dolor aeterno consulatu ius eu.</p>
+        <a href="#" class="read-more">детальніше...</a>
+    </div>
+
+</body>
+</html>
