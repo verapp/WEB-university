@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна №2 - CSS Анімація</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .horizontal-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border-radius: 15px;
+            background: #4a6f0a;
+            display: flex;
+            justify-content: center;
+        }
+
+        .horizontal-menu ul li {
+            position: relative;
+        }
+
+        .horizontal-menu ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .horizontal-menu ul li:hover > ul {
+            display: block;
+        }
+
+        .horizontal-menu ul ul {
+            position: absolute;
+            display: none;
+            top: 100%;
+            left: 0;
+            background: #4a6f0a;
+            border-radius: 15px;
+            padding: 0;
+        }
+
+        .horizontal-menu ul ul li {
+            display: block;
+            width: 150px;
+        }
+
+        .horizontal-menu ul ul ul {
+            position: absolute;
+            top: 0;
+            left: 100%;
+        }
+
+        .vertical-menu ul {
+            list-style: none;
+            padding: 0;
+            width: 200px;
+            background: #444;
+        }
+
+        .vertical-menu ul li {
+            position: relative;
+            border-radius: 15px;
+        }
+
+        .vertical-menu ul li a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            background: #444;
+            border-bottom: 1px solid #666;
+        }
+
+        .vertical-menu ul li:hover > ul {
+            display: block;
+        }
+
+        .vertical-menu ul ul {
+            position: absolute;
+            display: none;
+            left: 100%;
+            top: 0;
+            background: #666;
+            width: 150px;
+        }
+
+        .animated-box {
+            width: 300px;
+            height: 100px;
+            padding: 20px;
+            background: blue;
+            margin: 10px auto;
+            position: relative;
+            animation: move-box 3s infinite alternate, change-color 3s infinite alternate;
+        }
+
+        @keyframes move-box {
+            0% { left: 0; }
+            100% { left: 100px; }
+        }
+
+        @keyframes change-color {
+            0% { background: blue; }
+            100% { background: red; }
+        }
+
+        .ad-banner {
+            background: red;
+            color: black;
+            padding: 250px;
+            position: fixed;
+            bottom: 10%;
+            right: 21%;
+            border: 10px solid black;
+            font-weight: bold;
+            animation: fade-out 5s linear forwards;
+        }
+
+        @keyframes fade-out {
+            0% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <nav class="horizontal-menu">
+        <ul>
+            <li><a href="#">Item 1</a>
+                <ul>
+                    <li><a href="#">Subitem 1.1</a>
+                        <ul>
+                            <li><a href="#">Subitem 1.1.1</a></li>
+                            <li><a href="#">Subitem 1.1.2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Subitem 1.2</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="vertical-menu">
+        <ul>
+            <li><a href="#">Category 1</a>
+                <ul>
+                    <li><a href="#">Subcategory 1.1</a></li>
+                    <li><a href="#">Subcategory 1.2</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Category 2</a></li>
+        </ul>
+    </nav>
+
+    <div class="animated-box">
+        Анімований блок
+    </div>
+
+    <div class="ad-banner">
+        Це реклама! Вона зникне через 5 секунд.
+    </div>
+
+</body>
+</html>
