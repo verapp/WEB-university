@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Лабораторна №4 - ScrollSpy, Grid, Форма, Tooltips</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      position: relative;
+    }
+    section {
+      padding: 60px 20px;
+      min-height: 400px;
+    }
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    footer {
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body data-spy="scroll" data-target="#navbar-scroll" data-offset="50">
+
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navbar-scroll">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Мій Сайт</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#home">Головна</a></li>
+      <li><a href="#grid">Сітка</a></li>
+      <li><a href="#form">Форма</a></li>
+      <li><a href="#tips">Підказки</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section id="home" class="container text-center">
+  <h1>Головна</h1>
+  <p>Ласкаво просимо на адаптивний сайт з ScrollSpy</p>
+</section>
+
+<section id="grid" class="container text-center bg-info">
+  <h2>Сітка Bootstrap</h2>
+  <div class="row">
+    <div class="col-sm-4">
+      <p>Блок 1</p>
+    </div>
+    <div class="col-sm-4">
+      <p>Блок 2</p>
+    </div>
+    <div class="col-sm-4">
+      <p>Блок 3</p>
+    </div>
+  </div>
+</section>
+
+<section id="form" class="container">
+  <h2>Форма з підказками</h2>
+  <form>
+    <div class="form-group">
+      <label for="name">Ім’я:</label>
+      <input type="text" class="form-control" id="name" placeholder="Введіть ім’я" title="Ваше повне ім’я">
+    </div>
+    <div class="form-group">
+      <label for="email">Email адреса:</label>
+      <input type="email" class="form-control" id="email" placeholder="Введіть email" title="Електронна адреса у форматі: example@mail.com">
+    </div>
+    <div class="form-group">
+      <label for="msg">Повідомлення:</label>
+      <textarea class="form-control" id="msg" placeholder="Введіть повідомлення" rows="4" title="Тут ви можете залишити повідомлення"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Натисніть, щоб надіслати форму">Надіслати</button>
+  </form>
+</section>
+
+<section id="tips" class="container bg-light text-center">
+  <h2>Підказки (Tooltips)</h2>
+  <p>
+    Наведіть на кнопки, щоб побачити підказки:
+  </p>
+  <button type="button" class="btn btn-default" data-toggle="tooltip" title="Це підказка зліва" data-placement="left">Зліва</button>
+  <button type="button" class="btn btn-default" data-toggle="tooltip" title="Це підказка зверху" data-placement="top">Зверху</button>
+  <button type="button" class="btn btn-default" data-toggle="tooltip" title="Це підказка знизу" data-placement="bottom">Знизу</button>
+  <button type="button" class="btn btn-default" data-toggle="tooltip" title="Це підказка справа" data-placement="right">Справа</button>
+</section>
+
+<footer class="text-center">
+  <p>© 2024 Сайт на Bootstrap</p>
+</footer>
+
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>
+
+</body>
+</html>
