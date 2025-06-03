@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна №6 — Оновлено</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        section {
+            margin-bottom: 40px;
+            background-color: #fff;
+            border-left: 6px solid #3498db;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+        input, textarea {
+            display: block;
+            margin-bottom: 12px;
+            padding: 10px;
+            width: 100%;
+            max-width: 350px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 18px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .output {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Лабораторна робота №6</h1>
+
+    <!-- Завдання 1 -->
+    <section>
+        <h2>Завдання 1: Підрахунок слів, що закінчуються на "ie"</h2>
+        <p>Масив слів: ["apple", "cookie", "pie", "movie", "data", "tie"]</p>
+        <button onclick="runENames()">Порахувати слова</button>
+        <p id="enames-result" class="output"></p>
+    </section>
+
+    <!-- Завдання 2 -->
+    <section>
+        <h2>Завдання 2: Поточний час у форматі год/хв/сек (am/pm)</h2>
+        <button onclick="showTime()">Показати час</button>
+        <p id="time-result" class="output"></p>
+    </section>
+
+    <!-- Завдання 3 -->
+    <section>
+    <h2>Завдання 3: Повна форма з перевіркою e-mail</h2>
+    <form onsubmit="return validateFullForm()">
+        <label>Ім’я:<input type="text" name="fname" required></label>
+        <label>Прізвище:<input type="text" name="lname" required></label>
+        <label>Адреса:<input type="text" name="address" required></label>
+        <label>Місто:<input type="text" name="city" required></label>
+        <label>Країна:<input type="text" name="country" required></label>
+        <label>Поштовий індекс:<input type="text" name="zip" required></label>
+        <label>Телефон:<input type="text" name="phone" required></label>
+        <label>Email:<input type="text" id="email" name="email" required></label>
+        <button type="submit">Надіслати</button>
+    </form>
+</section>
+
+    <script>
+        // Завдання 1 — e_names
+        function e_names(words) {
+            let count = 0;
+            for (let word of words) {
+                if (word.toLowerCase().endsWith("ie")) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        function runENames() {
+            const words = ["apple", "cookie", "pie", "movie", "data", "tie"];
+            const result = e_names(words);
+            document.getElementById("enames-result").innerText =
+                `Кількість слів, що закінчуються на "ie": ${result}`;
+        }
+
+        // Завдання 2 — час чч/мм/сс (am/pm)
+        function showTime() {
+            let d = new Date();
+            let hours = d.getHours();
+            let minutes = String(d.getMinutes()).padStart(2, '0');
+            let seconds = String(d.getSeconds()).padStart(2, '0');
+            let ampm = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            hours = String(hours).padStart(2, '0');
+
+            document.getElementById("time-result").innerText =
+                `Час: ${hours}/${minutes}/${seconds} ${ampm}`;
+        }
+
+        // Завдання 3 — перевірка e-mail
+       function validateFullForm() {
+    const email = document.getElementById("email").value;
+    const emailPattern = /^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$/;
+
+    if (!emailPattern.test(email)) {
+        alert("Помилка: Введіть коректну e-mail адресу!");
+        return false;
+    }
+
+    alert("Форма успішно надіслана!");
+    return true;
+}
+    </script>
+
+</body>
+</html>
